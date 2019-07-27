@@ -17,11 +17,11 @@
 				swiperList:[
 					{
 						id:'001',
-						imgUrl:'https://pic5.40017.cn/01/000/31/71/rBANC1sy7-iAaElXAADxiWL4LPo263_520x218_00.jpg'
+						imgUrl:'https://pic5.40017.cn/02/001/9f/43/rBANDFplV7OATv-_AAEUYk6tmXg107_520x218_00.jpg'
 					},
 					{
 						id:'002',
-						imgUrl:'https://pic5.40017.cn/03/000/31/0c/rBANB1zlAcKAJMMtAALRm_wVSlk432_520x218_00.jpg'
+						imgUrl:'https://pic5.40017.cn/01/000/31/71/rBANC1sy7-iAaElXAADxiWL4LPo263_520x218_00.jpg'
 					}
 				],
 				swiperOption:{

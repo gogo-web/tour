@@ -5,10 +5,10 @@
 		</div>
 		<div class="header-search">
 			<span class="iconfont">&#xe688;</span>
-			上海海昌海洋公园
+			搜一下，带你玩转周边
 		</div>
 		<div class="header-city">
-			城市
+			合肥
 			<span class="iconfont">&#xe65d;</span>
 		</div>
 	</div>
