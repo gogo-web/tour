@@ -1,19 +1,19 @@
 <template>
 	<div class="hot">
 		<div class="hot-left">
-			
+
 			<div class="left-counter">
 				<div class="limit">限时抢购</div>
 				<div class="count">距结束 <span>02</span>:<span>04</span>:<span>08</span></div>
 			</div>
-			
+
 			<div class="left-content" v-for="item of hotContentList" :key="item.id">
 				<div class="content-img">
 					<img :src="item.imgUrl">
 				</div>
 				<div class="content-desc">{{item.desc}}</div>
 			</div>
-			
+
 			<div class="left-prise" v-for="item of hotPriseList" :key="item.id">
 				<div class="prise-sale">
 					限量<span>{{item.num}}份</span>
@@ -22,7 +22,7 @@
 					<span>¥</span>{{item.prise}}<span>起</span>
 				</div>
 			</div>
-			
+
 		</div>
 		<div class="hot-right">
 			<div class="right-item" v-for="item of hotTrendList" :key="item.id">
@@ -41,6 +41,12 @@
 <script>
 	export default {
 		name: 'homeHot',
+    props:{
+      hotTrendList:Array,
+      hotPriseList:Array,
+      hotContentList:Array,
+    },
+		/*
 		data () {
 			return {
 				hotContentList: [
@@ -73,6 +79,7 @@
 				],
 			}
 		}
+		*/
 	}
 </script>
 

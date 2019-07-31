@@ -12,8 +12,12 @@
 <script>
 	export default {
 		name: 'homeSwiper',
+    props:{
+      swiperList:Array
+    },
 		data(){
 			return {
+				/*
 				swiperList:[
 					{
 						id:'001',
@@ -24,6 +28,7 @@
 						imgUrl:'https://pic5.40017.cn/01/000/31/71/rBANC1sy7-iAaElXAADxiWL4LPo263_520x218_00.jpg'
 					}
 				],
+				*/
 				swiperOption:{
 					pagination:'.swiper-pagination',
 					loop:true
@@ -34,7 +39,7 @@
 </script>
 
 <style lang="stylus" scoped>
-.wrapper >>> .swiper-pagination-bullet 
+.wrapper >>> .swiper-pagination-bullet
   background:#fff
 .swiper-img
   width:100%

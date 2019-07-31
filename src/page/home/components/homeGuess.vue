@@ -27,11 +27,12 @@
 export default {
   name:'homeGuess',
   props:{
-    //guessList:Array
+    guessList:Array
   },
   data(){
     return {
       guessDescChange:'',
+      /*
       guessList:[
         {
           id:'1',
@@ -170,6 +171,7 @@ export default {
           prise:'460',
         },
       ],
+      */
     }
   },
   methods:{

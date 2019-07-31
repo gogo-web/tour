@@ -28,7 +28,7 @@
 export default {
 	name: 'homeWeekend',
   props:{
-    //weekendList:Array
+    weekendList:Array
   },
   data(){
     return {
@@ -37,6 +37,7 @@ export default {
         spaceBetween:20,
         slidesPerView:3,
       },
+      /*
       weekendList: [
         {
           id:'1',
@@ -57,6 +58,7 @@ export default {
           detail:'水陆双园 嗨翻夏天',
         },
       ],
+      */
     }
   },
 }

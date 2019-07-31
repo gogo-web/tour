@@ -12,12 +12,16 @@
 <script>
 	export default {
 		name: 'homeCatalog',
+		props:{
+			iconList:Array
+		},
 		data(){
 			return {
 				red:'red',
 				orange:'orange',
 				green:'green',
 				blue:'blue',
+        /*
 				iconList:[
 					{
 						id:'00001',
@@ -43,7 +47,8 @@
 						desc:'宏村',
 						color:'red',
 					},
-				]
+				],
+        */
 			}
 		},
 	}

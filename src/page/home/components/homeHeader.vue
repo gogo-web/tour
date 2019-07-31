@@ -1,14 +1,14 @@
 <template>
-	<div class="header">
-		<div class="header-back">
+	<div class="header" :class="[showHerder]">
+		<div class="header-back" :class="[showBack]">
 			<span class="iconfont">&#xe641;</span>
 		</div>
-		<div class="header-search">
+		<div class="header-search" :class="[showSearch]">
 			<span class="iconfont">&#xe688;</span>
 			搜一下，带你玩转周边
 		</div>
-		<div class="header-city">
-			合肥
+		<div class="header-city" :class="[showCity]">
+			{{this.city}}
 			<span class="iconfont">&#xe65d;</span>
 		</div>
 	</div>
@@ -17,14 +17,46 @@
 <script>
 	export default {
 		name: 'homeHeader',
+    props:['city'],
+    data(){
+      return {
+        showHerder:'',
+        showBack:'',
+        showSearch:'',
+        showCity:'',
+      }
+    },
+    methods:{
+      scrollChange(){
+        let height = document.documentElement.scrollTop
+        if (height>10) {
+          this.showHerder='showHerder';
+          this.showBack='showBack';
+          this.showSearch='showSearch';
+          this.showCity='showCity';
+        }else{
+          this.showHerder='';
+          this.showBack='';
+          this.showSearch='';
+          this.showCity='';
+        }
+      },
+    },
+    mounted(){
+      window.addEventListener('scroll',this.scrollChange)
+    },
 	}
 </script>
 
 <style lang="stylus" scoped>
+.showHerder
+  background:#fff
 .header
   line-height:.88rem
   text-align:center
   display:flex
+  .showBack
+    color:#000
   .header-back
     float:left
     width:.9rem
@@ -37,7 +69,12 @@
     margin-right:.2rem
     border-radius:.5rem
     box-shadow:0 0 .01rem .02rem #ccc
+  .showSearch
+    color:#aaa
+    background:#eee
   .header-city
     float:right
     width:1.4rem
+  .showCity
+    color:#000
 </style>
