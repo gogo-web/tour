@@ -2,7 +2,7 @@
   <div class="list" ref="wrapper">
     <div>
       <div class="present-area">
-        <div class="present-title">当前</div>
+        <div class="present-title" ref="present">当前</div>
         <div class="present-button">{{this.city}}</div>
       </div>
       <div class="hot-area">
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="alph-area">
-        <div class="alph-wrapper" v-for="(item,key) of cities" :key="key">
+        <div class="alph-wrapper" v-for="(item,key) of cities" :key="key" :ref="key">
           <div class="alph-title">{{key}}</div>
           <div class="alph-list">
             <div class="alph-button border-bottom" v-for="innerItem of item" :key="innerItem.id">
@@ -32,6 +32,22 @@
   import BMap from 'BMap'
 export default {
   name: 'locationList',
+  props:{
+    letter:String,
+  },
+  watch:{
+    letter(){
+      //console.log(this.letter)
+      const elementLetter = this.$refs[this.letter]
+      const elementPresent = this.$refs.present
+      if (elementLetter) {
+        const element = elementLetter[0]
+        this.scroll.scrollToElement(element,500)
+      } else {
+        this.scroll.scrollToElement(elementPresent,500)
+      }
+    }
+  },
   data(){
     return {
       city:'',
