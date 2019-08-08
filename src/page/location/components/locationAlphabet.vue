@@ -14,6 +14,9 @@
 <script>
 export default {
   name: 'locationAlphabet',
+	props:{
+		alphabetList:Array,
+	},
   methods:{
     handleLetterClick(e){
       this.content = e.target.innerText
@@ -34,6 +37,7 @@ export default {
   },
   data(){
     return {
+      /*
       alphabetList:[
         {
           id:'1',
@@ -148,6 +152,7 @@ export default {
           content:'Z',
         },
       ],
+      */
       content:'',
       hidden:{
         display:'none'

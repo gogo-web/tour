@@ -34,6 +34,8 @@ export default {
   name: 'locationList',
   props:{
     letter:String,
+    cities:Object,
+    hotCities:Array,
   },
   watch:{
     letter(){
@@ -51,6 +53,7 @@ export default {
   data(){
     return {
       city:'',
+      /*
       cities:{
         "A":[
           {
@@ -187,6 +190,7 @@ export default {
           name:'杭州',
         },
       ],
+      */
     }
   },
   mounted(){

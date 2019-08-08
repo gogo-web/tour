@@ -1,12 +1,14 @@
 <template>
   <div>
+    <div class="load" v-if="loading">loading...</div>
     <location-header></location-header>
-    <location-list :letter="letter"></location-list>
-    <location-alphabet @change="handleLetterChange"></location-alphabet>
+    <location-list :letter="letter" :cities="cities" :hotCities="hotCities"></location-list>
+    <location-alphabet @change="handleLetterChange" :alphabetList="alphabetList"></location-alphabet>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import locationHeader from './components/locationHeader'
 import locationList from './components/locationList'
 import locationAlphabet from './components/locationAlphabet'
@@ -15,11 +17,28 @@ export default {
   data(){
     return{
       letter:'',
+      cities:{},
+      hotCities:[],
+      alphabetList:[],
+      loading:true,
     }
   },
   methods:{
     handleLetterChange(e){
       this.letter = e
+    },
+    getLocationData(){
+      axios.get("/api/city.json").then(this.getLocationDataSucc)
+    },
+    getLocationDataSucc(res){
+      res = res.data
+      if(res.data){
+        this.loading = false
+        const data = res.data
+        this.cities = data.cities
+        this.hotCities = data.hotCities
+        this.alphabetList = data.alphabetList
+      }
     },
   },
   components: {
@@ -27,8 +46,23 @@ export default {
     locationList,
     locationAlphabet,
   },
+  mounted(){
+    this.getLocationData()
+  },
 }
 </script>
 
-<style>
+<style lang="stylus" scoped>
+.load
+  position: absolute;
+  top: 7rem;
+  left: 3.5rem;
+  z-index: 1000;
+  width: 1.8rem;
+  height: .5rem;
+  opacity: .3;
+  background: #000;
+  color: #fff;
+  text-align: center;
+  line-height: .5rem;
 </style>
