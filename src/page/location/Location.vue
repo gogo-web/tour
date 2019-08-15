@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="load" v-if="loading">loading...</div>
-    <location-header></location-header>
+    <location-header :cities="cities"></location-header>
     <location-list :letter="letter" :cities="cities" :hotCities="hotCities"></location-list>
     <location-alphabet @change="handleLetterChange" :alphabetList="alphabetList"></location-alphabet>
   </div>
