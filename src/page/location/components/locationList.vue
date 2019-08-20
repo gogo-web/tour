@@ -3,12 +3,12 @@
     <div>
       <div class="present-area">
         <div class="present-title" ref="present">当前</div>
-        <div class="present-button">{{this.city}}</div>
+        <div class="present-button" @click="handlePresentClick">{{this.$store.state.city}}</div>
       </div>
       <div class="hot-area">
         <div class="hot-title">热门城市</div>
         <div class="hot-list">
-          <div class="hot-button" v-for="item of hotCities" :key="item.id">
+          <div class="hot-button" v-for="item of hotCities" :key="item.id" @click="handleCurrentClick(item.name)">
             {{item.name}}
           </div>
         </div>
@@ -17,7 +17,7 @@
         <div class="alph-wrapper" v-for="(item,key) of cities" :key="key" :ref="key">
           <div class="alph-title">{{key}}</div>
           <div class="alph-list">
-            <div class="alph-button border-bottom" v-for="innerItem of item" :key="innerItem.id">
+            <div class="alph-button border-bottom" v-for="innerItem of item" :key="innerItem.id" @click="handleAlphClick(innerItem.name)">
               {{innerItem.name}}
             </div>
           </div>
@@ -36,6 +36,19 @@ export default {
     letter:String,
     cities:Object,
     hotCities:Array,
+  },
+  methods:{
+    handleCurrentClick(c){
+      this.$store.dispatch('change',c)
+      this.$router.push('/')
+    },
+    handleAlphClick(c){
+      this.$store.dispatch('change',c)
+      this.$router.push('/')
+    },
+    handlePresentClick(){
+      this.$router.push('/')
+    },
   },
   watch:{
     letter(){
@@ -200,16 +213,6 @@ export default {
         speed:20,
         invert:false,
         easeTime:300,
-      }
-    })
-
-    let map = new BMap.Map('allmap')
-    let myCity = new BMap.LocalCity()
-    myCity.get((result)=>{
-      if(result){
-        this.city = result.name
-      }else{
-        this.city = '正在获取位置信息'
       }
     })
   },

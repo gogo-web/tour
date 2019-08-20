@@ -9,7 +9,7 @@
     <div class="search-content" v-show="this.list.length" ref="contentWrapper">
       <ul>
         <li class="search-first">{{this.show}}</li>
-        <li class="search-item" v-for="item of this.list" :key="item.id">{{item.name}}</li>
+        <li class="search-item" v-for="item of this.list" :key="item.id" @click="handleItemClick(item.name)">{{item.name}}</li>
       </ul>
     </div>
   </div>
@@ -37,6 +37,10 @@ export default {
     }
   },
   methods:{
+    handleItemClick(c){
+      this.$store.dispatch('change',c)
+      this.$router.push('/')
+    },
     xClear(){
       this.keyword = ' '
       this.flag = '3'
