@@ -219,7 +219,7 @@ export default {
 }
 </script>
 
-<style lang="stylus"scoped>
+<style lang="stylus" scoped>
 .border-bottom
   &:before
     border: .04rem solid #ccc
