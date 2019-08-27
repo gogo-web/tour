@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state:{
     city:'合肥',
+    index:0
   },
   actions:{
     change(ctx,city){
