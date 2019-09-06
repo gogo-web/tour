@@ -2,7 +2,8 @@
   <div>
     <detail-header></detail-header>
 		<detail-swiper :swiperList="swiperList"></detail-swiper>
-    <router-view :galaryList="galaryList" :imgList="imgList">
+    <detail-map></detail-map>
+    <router-view :galaryList="galaryList" :imgList="imgList" :addressList="addressList">
     </router-view>
   </div>
 </template>
@@ -11,6 +12,7 @@
 import axios from 'axios'
 import detailHeader from './components/detailHeader'
 import detailSwiper from './components/detailSwiper'
+import detailMap from './components/detailMap'
 export default {
   name: 'Detail',
   data(){
@@ -18,11 +20,13 @@ export default {
       swiperList:[],
       galaryList:[],
       imgList:[],
+      addressList:[],
     }
   },
   components:{
     detailHeader,
 		detailSwiper,
+    detailMap,
   },
   methods:{
     a(){
@@ -36,6 +40,7 @@ export default {
         this.swiperList = data.swiperList
         this.galaryList = data.galaryList
         this.imgList = data.imgList
+        this.addressList = data.addressList
       }
     },
   },
